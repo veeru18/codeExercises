@@ -18,5 +18,8 @@ public class LargestInt {
 			}
 		}
 		System.out.println(n[len-1]);
+		
+		// This is same logic as bubble sort 
+		// can you please try different method.
 	}
 }
