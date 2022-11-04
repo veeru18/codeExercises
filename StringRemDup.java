@@ -10,6 +10,8 @@ public class StringRemDup {
 		remDup(s);
 	}
 	public static void remDup(String str) {
+		//why is this commented??
+		
 //		for(int i=0;i<=str.length()-1;i++) {
 //			int flag=0;String s="";
 //			for(int j=0;j<=str.length()-1;j++) {
@@ -22,6 +24,9 @@ public class StringRemDup {
 //				System.out.println(str.charAt(i));
 //			}
 //		}//gives 
+		
+		//why did you use linkedHashSet instead of HashSet?
+		
 		Set<Character> nonDuplicates=new LinkedHashSet<>();
 		for(int i=0;i<=str.length()-1;i++) 
 			nonDuplicates.add(str.toLowerCase().charAt(i));
