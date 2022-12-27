@@ -9,8 +9,8 @@ import java.util.Set;
 public class VariableValExt {
 
 	public static void valInsert(List<String> senten,Set<Character> oper) {
-		List<String> variables=new ArrayList<>();
-		List<Double> values=new ArrayList<>();
+		Set<String> variables=new LinkedHashSet<>();
+		Set<Double> values=new LinkedHashSet<>();
 		for(String s:senten) {
 			int indx=s.indexOf(':');
 //			System.out.println(indx);
@@ -66,11 +66,13 @@ public class VariableValExt {
 		}
 //		System.out.println(values+"\n"+variables);
 		if(variables.size()==values.size()) {
-			for(int i=0;i<values.size();i++) {
-				double res=values.get(i);
-				if(res-(int)res>0)
-				System.out.println(variables.get(i)+":"+values.get(i));
-				else System.out.println(variables.get(i)+":"+(long) res);
+			Iterator<Double> valueIter=values.iterator();
+			Iterator<String> variableIter=variables.iterator();
+			for(int i=0;i<values.size()&&variableIter.hasNext()&&valueIter.hasNext();i++) {
+				double res=valueIter.next();
+				if(res-(long) res>0)
+				System.out.println(variableIter.next()+":"+res);
+				else System.out.println(variableIter.next()+":"+(long) res);
 			}
 		}else System.out.println("Error unequal values and variables");
 	}
